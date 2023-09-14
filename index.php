@@ -1,3 +1,5 @@
 <?php
 
-echo 'Hi BRO!!!';
+$greeting= 'Hoala mon!!';
+
+require 'resources/views/index.blade.php';
