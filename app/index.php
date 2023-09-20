@@ -1,22 +1,18 @@
 <?php
 
+require 'config.php';
 require 'helpers.php';
 require 'Task.php';
-require 'config.php';
 
-$type=$config['database']['type'];
-$host=$config['database']['host'];
-$name=$config['database']['name'];
-$dsn="$type:host=$host;dbname=$name";
+
+
+
 
 //dd($dsn);
 
-try {
-    $dbh= new PDO($dsn,$config['database']['user'],$config['database']['password']);
+$dbh = connectDB($config);
 
-}catch (\Exception $e){
-    echo 'Ha hagut una excepcio';
-}
+
 
 $statement= $dbh->prepare('SELECT * FROM tasks;');
 $statement->execute();
