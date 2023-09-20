@@ -4,9 +4,6 @@ require 'helpers.php';
 require 'Task.php';
 require 'config.php';
 
-
-$user=$config['database']['user'];
-$pass=$config['database']['password'];
 $type=$config['database']['type'];
 $host=$config['database']['host'];
 $name=$config['database']['name'];
@@ -15,7 +12,7 @@ $dsn="$type:host=$host;dbname=$name";
 //dd($dsn);
 
 try {
-    $dbh= new PDO($dsn,$user,$pass);
+    $dbh= new PDO($dsn,$config['database']['user'],$config['database']['password']);
 
 }catch (\Exception $e){
     echo 'Ha hagut una excepcio';
