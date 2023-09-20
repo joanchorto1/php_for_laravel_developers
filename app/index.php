@@ -4,20 +4,9 @@ require 'config.php';
 require 'helpers.php';
 require 'Task.php';
 
-
-
-
-
 //dd($dsn);
 
-$dbh = connectDB($config);
-
-
-
-$statement= $dbh->prepare('SELECT * FROM tasks;');
-$statement->execute();
-
-$tasks =$statement->fetchAll(PDO::FETCH_CLASS,'Task');
+$tasks =fetchAllTasks(connectDB($config));
 
 $greeting = greet();
 
