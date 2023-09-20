@@ -1,30 +1,30 @@
 <?php
+
 require 'helpers.php';
 require 'Task.php';
+require 'config.php';
 
 
-//$task= new Task(1,'comprar','anar al super', 0);
-//var_dump($task);
+$user=$config['database']['user'];
+$pass=$config['database']['password'];
+$type=$config['database']['type'];
+$host=$config['database']['host'];
+$name=$config['database']['name'];
+$dsn="$type:host=$host;dbname=$name";
 
-$user='debian-sys-maint';
-$pass='0riUZMnh2l4hMZoJ';
+//dd($dsn);
+
 try {
-    $dbh= new PDO('mysql:host=localhost;dbname=phplaraveldevs',$user,$pass);
+    $dbh= new PDO($dsn,$user,$pass);
 
 }catch (\Exception $e){
     echo 'Ha hagut una excepcio';
 }
 
-
-
 $statement= $dbh->prepare('SELECT * FROM tasks;');
 $statement->execute();
 
-$tasks =$statement->fetchAll(PDO::FETCH_CLASS,'task');
-
-var_dump($tasks);
-
-
+$tasks =$statement->fetchAll(PDO::FETCH_CLASS,'Task');
 
 $greeting = greet();
 
