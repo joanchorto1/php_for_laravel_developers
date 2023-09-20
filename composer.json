@@ -1,0 +1,16 @@
+{
+    "name": "joanchorto1/php_for_laravel_developers",
+    "type": "project",
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "authors": [
+        {
+            "name": "joanchorto1",
+            "email": "joanchorto1@iesebre.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,5 +1,9 @@
 <?php
 
+
+use App\Models\Task;
+
+
 //FUCIONS
 function greet(){
     $name =htmlspecialchars($_GET['name']);
@@ -16,16 +20,7 @@ function dd($xivato){
 
 
 
-function connectDB($config){
-    try {
-       return new PDO($config['database']['type'] . ':host=' . $config['database']['host'] . ';dbname=' . $config['database']['name'] ,
-       $config['database']['user'],
-        $config['database']['password']);
 
-    }catch (\Exception $e){
-        echo 'Ha hagut una excepcio';
-    }
-}
 
 
 
@@ -34,6 +29,6 @@ function fetchAllTasks($dbh){
     $statement= $dbh->prepare('SELECT * FROM tasks;');
     $statement->execute();
 
-    return $statement->fetchAll(PDO::FETCH_CLASS,'Task');
+    return $statement->fetchAll(PDO::FETCH_CLASS,Task::class);
 }
 

@@ -1,12 +1,18 @@
 <?php
 
+use framework\Database\Database;
+
 require 'config.php';
 require 'helpers.php';
-require 'Task.php';
 
-//dd($dsn);
 
-$tasks =fetchAllTasks(connectDB($config));
+
+
+$database = new Database($config);
+$tasks= $database->selectAll('tasks');
+//$tasks= Database::selectAll('tasks'); //Crida estatica --> sense new
+//$tasks= Task::selectAll('taskes'); --> Larabel Eloquent
+
 
 $greeting = greet();
 
