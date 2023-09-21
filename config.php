@@ -1,11 +1,11 @@
 <?php
 
-$config = [
+return  [
     'database' => [
-        'user' => 'debian-sys-maint',
-        'password' => '0riUZMnh2l4hMZoJ',
-        'type' => 'mysql',
-        'host' => 'localhost',
-        'name' => 'phplaraveldevs'
+        'user' =>$_ENV['DB_USERNAME'] ,
+        'password' =>$_ENV['DB_PASSWORD'] ,
+        'type' => $_ENV['DB_CONNECTION'],
+        'host' => $_ENV['DB_HOST' ],
+        'name' =>$_ENV['DB_DATABASE']
     ]
 ];

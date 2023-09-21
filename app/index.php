@@ -1,15 +1,13 @@
 <?php
 
-use framework\Database\Database;
+use framework\App;
 
-require 'config.php';
-require 'helpers.php';
-
+require 'app/helpers.php';
 
 
+$tasks= App::get('database')->selectAll('tasks');
 
-$database = new Database($config);
-$tasks= $database->selectAll('tasks');
+//$database = Database::make()(App::get('config')['database']); //Laravel no utilitza new utilitza unes crides estatiques
 //$tasks= Database::selectAll('tasks'); //Crida estatica --> sense new
 //$tasks= Task::selectAll('taskes'); --> Larabel Eloquent
 

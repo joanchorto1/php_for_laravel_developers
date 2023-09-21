@@ -12,5 +12,8 @@
             "email": "joanchorto1@iesebre.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-pdo": "*",
+        "vlucas/phpdotenv": "^5.5"
+    }
 }
