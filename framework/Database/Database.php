@@ -1,6 +1,9 @@
 <?php
 
 namespace framework\Database;
+use App\Models\Task;
+use PDO;
+
 class Database
 {
 
@@ -18,6 +21,19 @@ class Database
 
     function selectAll($table)
     {
-        return fetchAllTasks($this->conection->connectDB());
+        $dbh= $this->conection->connectDB();
+        $statement= $dbh->prepare("SELECT * FROM $table ;");
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS,Task::class);
+
+//        return fetchAllTasks($this->conection->connectDB());
+
     }
+
+    function fetchAllTasks($dbh){
+
+
+    }
+
 }
