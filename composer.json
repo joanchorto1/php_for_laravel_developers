@@ -4,6 +4,9 @@
     "autoload": {
         "classmap": [
             "./"
+        ],
+        "files": [
+            "framework/helpers.php"
         ]
     },
     "authors": [
