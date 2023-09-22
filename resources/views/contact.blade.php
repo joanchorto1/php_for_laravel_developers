@@ -29,25 +29,7 @@
     </ul>
 </nav>
 <header>
-    <h1><?=$greeting;?></h1>
-
-    <table>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>Description</th>
-            <th>Completed</th>
-        </tr>
-
-<?php foreach ($tasks as $task):?>
-        <tr>
-            <td><?=$task->id;?></td>
-            <td><?=$task->title;?></td>
-            <td><?=$task->description;?></td>
-            <td><?=$task->completed;?></td>
-        </tr>
-  <?php endforeach; ?>
-    </table>
+    TO DO CONTACT HERE
 </header>
 
 </body>

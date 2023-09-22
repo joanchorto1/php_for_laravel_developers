@@ -3,7 +3,7 @@
 use framework\App;
 
 
-
+require 'resources/views/index.blade.php'; // VISTA
 
 $tasks= App::get('database')->selectAll('tasks');
 
