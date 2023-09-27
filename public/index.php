@@ -4,9 +4,9 @@
 //PART QUE POTRA EL LARAVEL
 use framework\App;
 
-require 'vendor/autoload.php';
-require  'framework/bootstrap.php';
-require 'routes.php';
+require '../vendor/autoload.php';
+require '../framework/bootstrap.php';
+
 
 
 //PART DEL PROGRAMA--> CREACIONS MEUES

@@ -2,9 +2,6 @@
 
 use framework\App;
 
-
-require 'resources/views/index.blade.php'; // VISTA
-
 $tasks= App::get('database')->selectAll('tasks');
 
 //$database = Database::make()(App::get('config')['database']); //Laravel no utilitza new utilitza unes crides estatiques
@@ -14,7 +11,7 @@ $tasks= App::get('database')->selectAll('tasks');
 
 $greeting = greet();
 
-
+require '../resources/views/index.blade.php';
 
 
 
