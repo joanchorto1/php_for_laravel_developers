@@ -1,6 +1,7 @@
 <?php
 
-//Sense model --> nomes vista
+use framework\App;
 
-//require 'app/index.php'; //MODEL
+$users= App::get('database')->selectAll('users');
+
 require '../resources/views/users.blade.php'; // VISTA
