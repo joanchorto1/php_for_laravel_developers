@@ -1,7 +1,14 @@
 Copiar la base de dades local a un fitxer .sql
 
 Ulilitzar:
+
 sudo mysqldump -u debian-sys-maint -p phplaraveldevs > test.sql
+
+scp test.sql forge@ipserver
+
+o també
+
+copiar el contingut a un fitxer nou al servidor (^C, ^V)
 
 Entrar amb ssh al servidor, executar:
 
