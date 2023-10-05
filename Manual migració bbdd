@@ -1,0 +1,9 @@
+Copiar la base de dades local a un fitxer .sql
+
+Ulilitzar:
+sudo mysqldump -u debian-sys-maint -p phplaraveldevs > test.sql
+
+Entrar amb ssh al servidor, executar:
+
+mysql -u phplaraveldevs -p phplaraveldevs < test.sql 
+
