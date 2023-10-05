@@ -1,0 +1,648 @@
+➜  ~ ls -al ~/.ssh
+total 24
+drwx------  2 alumne alumne 4096 de març  24  2023 .
+drwxr-x--- 56 alumne alumne 4096 d’oct.    5 15:57 ..
+-rw-------  1 alumne alumne  464 d’oct.    6  2022 id_ed25519
+-rw-r--r--  1 alumne alumne  105 de set.  15  2022 id_ed25519.pub
+-rw-------  1 alumne alumne 1120 d’oct.    5 15:28 known_hosts
+-rw-------  1 alumne alumne  806 de set.  19  2022 known_hosts.old
+➜  ~ cat id_ed25519.pub
+cat: id_ed25519.pub: El fitxer o directori no existeix
+➜  ~ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKXQVik65EBjro10t2MgscYNdbM+1MW4M/HbUlb3MnIP joanchorto1@iesebre.com
+➜  ~ 
+➜  ~ ssh forge@143.198.122.247
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-86-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Oct  5 13:58:53 UTC 2023
+
+  System load:           0.12255859375
+  Usage of /:            21.7% of 24.05GB
+  Memory usage:          61%
+  Swap usage:            0%
+  Processes:             100
+  Users logged in:       0
+  IPv4 address for eth0: 143.198.122.247
+  IPv4 address for eth0: 10.10.0.5
+  IPv6 address for eth0: 2604:a880:400:d0::1f9e:a001
+  IPv4 address for eth1: 10.116.0.2
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+12 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+forge@chorto:~$ cd /etc/nginx/forge-conf/
+forge@chorto:/etc/nginx/forge-conf$ ls
+default  phpforlaravel.joanchortodev.me
+forge@chorto:/etc/nginx/forge-conf$ cd phpforlaravel.joanchortodev.me/
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me$ ls
+after  before  server
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me$ cd after/
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me/after$ ls
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me/after$ cd ..
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me$ cd before/
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me/before$ LS
+LS: command not found
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me/before$ ls
+redirect.conf
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me/before$ cat redirect.conf 
+server {
+    listen 80;
+    listen [::]:80;
+    server_tokens off;
+
+    server_name www.phpforlaravel.joanchortodev.me;
+
+    if ($http_x_forwarded_proto = 'https') {
+        return 301 https://phpforlaravel.joanchortodev.me$request_uri;
+    }
+
+    return 301 $scheme://phpforlaravel.joanchortodev.me$request_uri;
+}
+
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me/before$ ^C
+forge@chorto:/etc/nginx/forge-conf/phpforlaravel.joanchortodev.me/before$ exit
+logout
+Connection to 143.198.122.247 closed.
+➜  ~ sudo nano /etc/hosts               
+[sudo] contrasenya per a alumne: 
+
+
+Empreu «fg» per a tornar al nano.
+[1]  + 9091 suspended (signal)  sudo nano /etc/hosts
+➜  ~ sudo nano /etc/hosts
+➜  ~ sudo nano /etc/hosts
+➜  ~ sudo nano /etc/hosts
+➜  ~ ping phpforlaravel.joanchortodev.me
+PING phpforlaravel.joanchortodev.me (143.198.122.247) 56(84) bytes of data.
+64 bytes from phpforlaravel.joanchortodev.me (143.198.122.247): icmp_seq=1 ttl=49 time=103 ms
+64 bytes from phpforlaravel.joanchortodev.me (143.198.122.247): icmp_seq=2 ttl=49 time=102 ms
+64 bytes from phpforlaravel.joanchortodev.me (143.198.122.247): icmp_seq=3 ttl=49 time=102 ms
+64 bytes from phpforlaravel.joanchortodev.me (143.198.122.247): icmp_seq=4 ttl=49 time=102 ms
+^C
+--- phpforlaravel.joanchortodev.me ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 102.364/102.567/103.120/0.319 ms
+➜  ~ ssh forge@143.198.122.247          
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-86-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Oct  5 14:13:24 UTC 2023
+
+  System load:           0.1474609375
+  Usage of /:            21.7% of 24.05GB
+  Memory usage:          62%
+  Swap usage:            0%
+  Processes:             102
+  Users logged in:       0
+  IPv4 address for eth0: 143.198.122.247
+  IPv4 address for eth0: 10.10.0.5
+  IPv6 address for eth0: 2604:a880:400:d0::1f9e:a001
+  IPv4 address for eth1: 10.116.0.2
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+12 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+Last login: Thu Oct  5 13:59:07 2023 from 95.129.255.225
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+forge@chorto:~$ sudo su
+[sudo] password for forge: 
+root@chorto:/home/forge# nano /root/.ssh/authorized_keys 
+root@chorto:/home/forge# nano /home/forge/.ssh/authorized_keys
+root@chorto:/home/forge# 
+root@chorto:/home/forge# nano /home/forge/.ssh/authorized_keys
+root@chorto:/home/forge# ls
+default  phpforlaravel.joanchortodev.me
+You have new mail in /var/mail/root
+root@chorto:/home/forge# cd /var/www
+root@chorto:/var/www# systemctl status apache2
+Unit apache2.service could not be found.
+root@chorto:/var/www# systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor prese>
+     Active: active (running) since Thu 2023-10-05 13:33:54 UTC; 45min ago
+       Docs: man:nginx(8)
+    Process: 701 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_proc>
+    Process: 810 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (>
+    Process: 3623 ExecReload=/usr/sbin/nginx -g daemon on; master_process on;>
+   Main PID: 843 (nginx)
+      Tasks: 2 (limit: 1102)
+     Memory: 14.5M
+        CPU: 210ms
+     CGroup: /system.slice/nginx.service
+             ├─ 843 "nginx: master process /usr/sbin/nginx -g daemon on; mast>
+             └─3628 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" >
+
+Oct 05 13:33:52 chorto systemd[1]: Starting A high performance web server and>
+Oct 05 13:33:54 chorto systemd[1]: nginx.service: Failed to parse PID from fi>
+Oct 05 13:33:54 chorto systemd[1]: Started A high performance web server and >
+Oct 05 13:47:43 chorto systemd[1]: Reloading A high performance web server an>
+Oct 05 13:47:43 chorto systemd[1]: Reloaded A high performance web server and>
+Oct 05 13:48:53 chorto systemd[1]: Reloading A high performance web server an>
+Oct 05 13:48:53 chorto systemd[1]: Reloaded A high performance web server and>
+lines 1-22...skipping...
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2023-10-05 13:33:54 UTC; 45min ago
+       Docs: man:nginx(8)
+    Process: 701 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 810 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 3623 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 843 (nginx)
+      Tasks: 2 (limit: 1102)
+     Memory: 14.5M
+        CPU: 210ms
+     CGroup: /system.slice/nginx.service
+             ├─ 843 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             └─3628 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Oct 05 13:33:52 chorto systemd[1]: Starting A high performance web server and a reverse proxy server...
+Oct 05 13:33:54 chorto systemd[1]: nginx.service: Failed to parse PID from file /run/nginx.pid: Invalid argument
+Oct 05 13:33:54 chorto systemd[1]: Started A high performance web server and a reverse proxy server.
+Oct 05 13:47:43 chorto systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Oct 05 13:47:43 chorto systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+Oct 05 13:48:53 chorto systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Oct 05 13:48:53 chorto systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+Oct 05 13:51:30 chorto systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Oct 05 13:51:30 chorto systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-24/24 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2023-10-05 13:33:54 UTC; 45min ago
+       Docs: man:nginx(8)
+    Process: 701 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 810 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 3623 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 843 (nginx)
+      Tasks: 2 (limit: 1102)
+     Memory: 14.5M
+        CPU: 210ms
+     CGroup: /system.slice/nginx.service
+             ├─ 843 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             └─3628 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Oct 05 13:33:52 chorto systemd[1]: Starting A high performance web server and a reverse proxy server...
+Oct 05 13:33:54 chorto systemd[1]: nginx.service: Failed to parse PID from file /run/nginx.pid: Invalid argument
+Oct 05 13:33:54 chorto systemd[1]: Started A high performance web server and a reverse proxy server.
+Oct 05 13:47:43 chorto systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Oct 05 13:47:43 chorto systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+Oct 05 13:48:53 chorto systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Oct 05 13:48:53 chorto systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+Oct 05 13:51:30 chorto systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Oct 05 13:51:30 chorto systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-24/24 (END)
+^C
+root@chorto:/var/www# cd /var/log
+root@chorto:/var/log# ls
+alternatives.log  apt       btmp                   cloud-init.log  dmesg    dpkg.log                  fail2ban.log    journal   landscape  mail.log  nginx           private  supervisor  ubuntu-advantage.log  unattended-upgrades
+apport.log        auth.log  cloud-init-output.log  dist-upgrade    dmesg.0  droplet-agent.update.log  fontconfig.log  kern.log  lastlog    mysql     php8.2-fpm.log  redis    syslog      ufw.log               wtmp
+root@chorto:/var/log# cd nginx/
+root@chorto:/var/log/nginx# ls
+access.log  default-error.log  error.log  phpforlaravel.joanchortodev.me-error.log
+root@chorto:/var/log/nginx# cat error.log 
+2023/10/04 18:17:17 [notice] 41543#41543: signal process started
+2023/10/04 18:20:16 [notice] 47079#47079: signal process started
+2023/10/05 13:17:09 [notice] 67100#67100: signal process started
+2023/10/05 13:17:58 [notice] 67674#67674: signal process started
+2023/10/05 13:47:43 [notice] 2711#2711: signal process started
+2023/10/05 13:48:53 [notice] 3053#3053: signal process started
+2023/10/05 13:51:30 [notice] 3623#3623: signal process started
+root@chorto:/var/log/nginx# ls
+access.log  default-error.log  error.log  phpforlaravel.joanchortodev.me-error.log
+root@chorto:/var/log/nginx# cat phpforlaravel.joanchortodev.me-error.log 
+2023/10/05 13:26:46 [error] 67679#67679: *286 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/forge/phpforlaravel.joanchortodev.me/framework/../.env]. in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/forge/phpforlaravel.joanchortodev.me/framework/bootstrap.php(13): Dotenv\Dotenv->load()
+#2 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(8): require('...')
+#3 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:26:47 [error] 67679#67679: *286 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/forge/phpforlaravel.joanchortodev.me/framework/../.env]. in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/forge/phpforlaravel.joanchortodev.me/framework/bootstrap.php(13): Dotenv\Dotenv->load()
+#2 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(8): require('...')
+#3 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:26:48 [error] 67679#67679: *286 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/forge/phpforlaravel.joanchortodev.me/framework/../.env]. in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/forge/phpforlaravel.joanchortodev.me/framework/bootstrap.php(13): Dotenv\Dotenv->load()
+#2 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(8): require('...')
+#3 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:26:55 [error] 67679#67679: *286 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/forge/phpforlaravel.joanchortodev.me/framework/../.env]. in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/forge/phpforlaravel.joanchortodev.me/framework/bootstrap.php(13): Dotenv\Dotenv->load()
+#2 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(8): require('...')
+#3 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:32:22 [error] 67679#67679: *292 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:32:22 [error] 67679#67679: *292 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:32:23 [error] 67679#67679: *292 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:32:23 [error] 67679#67679: *292 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:32:23 [error] 67679#67679: *292 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:32:28 [error] 67679#67679: *292 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:32:54 [error] 67679#67679: *292 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:34:27 [error] 844#844: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:39:38 [error] 844#844: *6 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:39:39 [error] 844#844: *6 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:40:35 [error] 844#844: *9 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:41:35 [error] 844#844: *9 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:41:36 [error] 844#844: *9 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:43:19 [error] 844#844: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:43:20 [error] 844#844: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:43:20 [error] 844#844: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:44:22 [error] 844#844: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:44:27 [error] 844#844: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 13:44:56 [error] 844#844: *14 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 14:17:28 [error] 3628#3628: *28 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 14:18:59 [error] 3628#3628: *30 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+2023/10/05 14:19:00 [error] 3628#3628: *30 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'phplaraveldevs.tasks' doesn't exist in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php:21
+Stack trace:
+#0 /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php(21): PDOStatement->execute()
+#1 /home/forge/phpforlaravel.joanchortodev.me/app/Http/Controllers/index.php(5): framework\Database\Database->selectAll()
+#2 /home/forge/phpforlaravel.joanchortodev.me/framework/Route.php(34): require('...')
+#3 /home/forge/phpforlaravel.joanchortodev.me/public/index.php(17): framework\Route->redirect()
+#4 {main}
+  thrown in /home/forge/phpforlaravel.joanchortodev.me/framework/Database/Database.php on line 21" while reading response header from upstream, client: 95.129.255.225, server: phpforlaravel.joanchortodev.me, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.2-fpm.sock:", host: "phpforlaravel.joanchortodev.me"
+root@chorto:/var/log/nginx# ^C
+root@chorto:/var/log/nginx# cat phpforlaravel.joanchortodev.me-error.log ^C
+root@chorto:/var/log/nginx# pwd
+/var/log/nginx
+root@chorto:/var/log/nginx# ls
+access.log  default-error.log  error.log  phpforlaravel.joanchortodev.me-error.log
+root@chorto:/var/log/nginx# cd /var/www/
+root@chorto:/var/www# ls
+html
+root@chorto:/var/www# cd /home/forge/phpforlaravel.joanchortodev.me
+root@chorto:/home/forge/phpforlaravel.joanchortodev.me# ls
+app  composer.json  composer.lock  config.php  framework  public  resources  routes.php  vendor
+root@chorto:/home/forge/phpforlaravel.joanchortodev.me# php artisan migrate
+Could not open input file: artisan
+root@chorto:/home/forge/phpforlaravel.joanchortodev.me# php
+^C
+root@chorto:/home/forge/phpforlaravel.joanchortodev.me# su forge
+forge@chorto:~/phpforlaravel.joanchortodev.me$ php
+^C
+forge@chorto:~/phpforlaravel.joanchortodev.me$ php artisan migrate
+Could not open input file: artisan
+forge@chorto:~/phpforlaravel.joanchortodev.me$ composer install
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Nothing to install, update or remove
+Generating autoload files
+6 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+forge@chorto:~/phpforlaravel.joanchortodev.me$ ls
+app  composer.json  composer.lock  config.php  framework  public  resources  routes.php  vendor
+forge@chorto:~/phpforlaravel.joanchortodev.me$ ls
+app  composer.json  composer.lock  config.php  framework  public  resources  routes.php  vendor
+forge@chorto:~/phpforlaravel.joanchortodev.me$ nano test.sql
+forge@chorto:~/phpforlaravel.joanchortodev.me$ mysql -u phplaraveldevs -p phplaraveldevs < test.sql 
+Enter password: 
+forge@chorto:~/phpforlaravel.joanchortodev.me$ ^C
+forge@chorto:~/phpforlaravel.joanchortodev.me$ 
+
+
